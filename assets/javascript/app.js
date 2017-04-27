@@ -1,38 +1,52 @@
 //create a 10-question trivia game
 
-/*
-1. What is the most populated city in the world? Tokyo
-2. Who is the richest person in the world (as of April 2017)? Bill Gates
-3. Which year did the first iPhone come out? 2007
-4. What city does Batman live in? Gotham
-5. How many votes were cast in the 2016 U.S. presidential election (per the FEC)? 136,669,237
-6. How far is the sun from the Earth (in miles)? 92.96 million miles
-7. How many different species of spiders are there? ~35000
-8. How many countries are there in the world? 195
-9. How fast did the Millenium Falcon make the Kessel run? (less than 12 parsecs)
-
-*/
 //create variables for correct/incorrect/unanswered questions
 var correctAnswers;
 var incorrectAnswers;
 var unansweredQuestions;
 
-//  Variable that will hold our setInterval that runs the stopwatch
-//	var intervalId;
+//Variable that will hold our setInterval that runs the stopwatch
+var intervalId;
 
-//Have a button labeled "start" for the user to click on in order to start the game
-$(".btn").on("click", triviaGame());
 
+var triviaGameHTML = 
+	'<div class = "row">' + 
+		'<div class = "col-lg-8">' +
+			'<section id = "timer-section"></section><br>' +
+			'<section id = "question-section"><h2>Insert question here</h2></section><br>' +
+			'<div class="list-group" id = "answers-section">' +
+			  '<button type="button" class="list-group-item" id = "answer-one">Answer 1</button>' +
+			  '<button type="button" class="list-group-item" id = "answer-two">Answer 2</button>' +
+			  '<button type="button" class="list-group-item" id = "answer-three">Answer 3</button>' +
+			  '<button type="button" class="list-group-item" id = "answer-four">Answer 4</button>' + 
+			'</div>' +
+		'</div>' +
+	'</div>';
+
+console.log(triviaGameHTML);
+
+ $(".btn").on("click", function() {
+ 	//use .replaceWith() to replace the start button class with the HTML in var triviaGameHTML
+ 	$("div.third").replaceWith(triviaGameHTML);
+ });
 
 $(document).ready(function() {
+
+
 
 	//create triviaGame object for the game
 	var triviaGame = {
 
 
 	//figure out how to store the questions and their answers in this object and how to display them on the HTML page when the game starts (test this possible solution to display each question and answer in HTMl: triviaGame.questionOne[0];)
-		questionOne: ["What is the most populated city in the world?", "Tokyo", "New Brunswick, NJ", "London", "Mumbai"],
-		questionTwo: [],
+		questionOne: ["What is the most populated city in the world?", "Tokyo!", "New Brunswick, NJ", "London", "Mumbai"],
+		questionTwo: ["Who is the richest person in the world (as of April 2017)?", "Jeff Bezos", "Bill Gates!", "Warren Buffett", "Donald Trump"],
+		questionThree: ["Which year did the first iPhone come out?", "1776", "2008", "2007!", "2005"],
+		questionFour: ["Which city does Batman operate in?", "Gotham!", "Metropolis", "Star City", "Detroit"],
+		questionFive: ["How many votes were cast in the 2016 U.S. presidential election (per the FEC)?", "143,392,192", "1,238,504,010", "136,669,237!", "134,395,203"],
+		questionSix: ["How far is the sun from the Earth (in miles)?", "80.95 million", "102.96 million", "89.11 million", "92.96 million!"],
+		questionSeven: ["How many different species of spiders are there?", "~35000!", "~46000", "~3000", "~15350"],
+		questionEight: ["How fast did the Millenium Falcon make the Kessel run?", "25 seconds", "less than 12 parsecs!", "3.4 light years", "none of the above"],
 
 	//When the user clicks start, create a function to show the first question and have a timer on the page counting down from 30 seconds
 		displayQuestionOne: function() {
@@ -64,4 +78,4 @@ $(document).ready(function() {
 
 
 
-}
+});
