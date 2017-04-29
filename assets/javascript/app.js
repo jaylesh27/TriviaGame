@@ -26,13 +26,11 @@ var triviaGameHTML =
 console.log(triviaGameHTML);
 
  $(".btn").on("click", function() {
- 	//use .replaceWith() to replace the start button class with the HTML in var triviaGameHTML
- 	$("div.third").replaceWith(triviaGameHTML);
+ 	//replace
+ 	$(".trivia-game-content").html(triviaGameHTML);
  });
 
 $(document).ready(function() {
-
-
 
 	//create triviaGame object for the game
 	var triviaGame = {
@@ -50,7 +48,7 @@ $(document).ready(function() {
 
 	//When the user clicks start, create a function to show the first question and have a timer on the page counting down from 30 seconds
 		displayQuestionOne: function() {
-
+			
 		},
 
 	//Use clearInterval to stop the count here.
